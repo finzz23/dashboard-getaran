@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stasiun Pemantauan Getaran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div class="station">
+    <header class="topbar">
+      <div class="topbar__id">
+        <span class="topbar__label">Alat</span>
+        <span id="device-id" class="topbar__value">--</span>
+      </div>
+      <div class="topbar__conn">
+        <span id="conn-dot" class="conn-dot conn-dot--pending"></span>
+        <span id="conn-text">Menghubungkan…</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="hero" id="hero" data-status="0">
+        <div class="hero__status">
+          <span class="hero__status-label">Status saat ini</span>
+          <span id="status-text" class="hero__status-value">--</span>
+        </div>
+        <div class="hero__magnitude">
+          <span id="magnitude-value" class="hero__magnitude-value">--</span>
+          <span class="hero__magnitude-unit">g</span>
+        </div>
+        <div class="hero__meta">
+          <span id="last-update" class="hero__meta-item">Belum ada data</span>
+        </div>
+      </section>
+
+      <section class="axes">
+        <div class="axis-card">
+          <span class="axis-card__label">Sumbu X</span>
+          <span id="accel-x" class="axis-card__value">--</span>
+        </div>
+        <div class="axis-card">
+          <span class="axis-card__label">Sumbu Y</span>
+          <span id="accel-y" class="axis-card__value">--</span>
+        </div>
+        <div class="axis-card">
+          <span class="axis-card__label">Sumbu Z</span>
+          <span id="accel-z" class="axis-card__value">--</span>
+        </div>
+      </section>
+
+      <section class="trace-panel">
+        <div class="trace-panel__header">
+          <h2>Grafik Magnitude</h2>
+          <span class="trace-panel__hint">20 event terakhir</span>
+        </div>
+        <canvas id="trace-chart" height="220"></canvas>
+      </section>
+
+      <section class="log-panel">
+        <div class="log-panel__header">
+          <h2>Riwayat Event</h2>
+          <span id="log-count" class="trace-panel__hint">0 event</span>
+        </div>
+        <div class="log-table__wrap">
+          <table class="log-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Waktu</th>
+                <th>Status</th>
+                <th>Magnitude</th>
+                <th>X</th>
+                <th>Y</th>
+                <th>Z</th>
+              </tr>
+            </thead>
+            <tbody id="log-body">
+              <tr class="log-table__empty-row">
+                <td colspan="7">Menunggu data event pertama…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
