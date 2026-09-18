@@ -85,6 +85,7 @@ export default async function handler(req, res) {
     accel_y,
     accel_z,
     magnitude,
+    rms: magnitude,
     status,
     nama_status,
   };
