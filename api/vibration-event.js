@@ -79,13 +79,14 @@ export default async function handler(req, res) {
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
-  const eventData = {
+    const eventData = {
     device_id,
     accel_x,
     accel_y,
     accel_z,
     magnitude,
     rms: magnitude,
+    peak: magnitude,
     status,
     nama_status,
   };
