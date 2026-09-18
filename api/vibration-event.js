@@ -40,7 +40,7 @@ async function kirimWhatsApp(supabase, event) {
     `Status: ${event.nama_status}\n` +
     `Magnitude: ${event.magnitude.toFixed(2)} g\n` +
     `Alat: ${event.device_id}\n` +
-    `Waktu: ${new Date().toLocaleString("id-ID")}`;
+    `Waktu: ${new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" })}`;
 
   const targets = kontak.map((k) => k.phone_number).join(",");
 
@@ -79,7 +79,7 @@ export default async function handler(req, res) {
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
-    const eventData = {
+  const eventData = {
     device_id,
     accel_x,
     accel_y,
